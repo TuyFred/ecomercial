@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: url('images/ecomcr.webp') no-repeat center center/cover;
+            color: #333;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #007bff;
+            color: #fff;
+            padding: 15px 50px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header .logo {
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        header nav ul li a:hover {
+            color: #ff6f61;
+        }
+        .hero {
+            text-align: center;
+            color: #fff;
+            padding: 80px 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        .hero h1 {
+            font-size: 60px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+        .hero .cta-btn {
+            padding: 15px 40px;
+            font-size: 20px;
+            border: none;
+            border-radius: 30px;
+            background-color: #ff6f61;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+        .hero .cta-btn:hover {
+            background-color: #ff4a39;
+            transform: scale(1.05);
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            padding: 20px 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        footer .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        footer .footer-section {
+            flex: 1;
+            margin: 10px;
+            min-width: 200px;
+        }
+        footer .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        footer .footer-section p, footer .footer-section a {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #ddd;
+            text-decoration: none;
+        }
+        footer .footer-section a:hover {
+            color: #ff6f61;
+        }
+        footer .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        footer .social-icons i {
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        footer .social-icons i:hover {
+            color: #ff6f61;
+        }
+        footer .copyright {
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center;
+            flex-basis: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">E-Shop</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Welcome to E-Shop</h1>
+        <p>Your one-stop shop for everything you need!</p>
+        <button class="cta-btn">Start Shopping</button>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>E-Shop is your trusted online store, offering a wide range of products at the best prices. We aim to provide a seamless shopping experience for our valued customers.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#">Privacy Policy</a><br>
+                <a href="#">Terms of Service</a><br>
+                <a href="#">Support</a><br>
+                <a href="#">FAQs</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: support@eshop.com</p>
+                <p>Phone: +1 234 567 890</p>
+                <p>Address: 123 E-Shop Street, Online City, World</p>
+            </div>
+        </div>
+        <div class="social-icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin"></i>
+            <i class="fab fa-youtube"></i>
+            <i class="fab fa-pinterest"></i>
+        </div>
+        <div class="copyright">
+            &copy; 2024 E-Shop. All Rights Reserved.
+        </div>
+    </footer>
+</body>
+</html>

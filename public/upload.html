@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: #f8f9fa; /* Light background color */
+        }
+        .container {
+            padding: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: #ffffff;
+        }
+        .product-card img {
+            width: 35%; /* Smaller image size */
+            height: auto;
+            border-radius: 8px;
+        }
+        .product-info {
+            margin-top: 10px;
+        }
+        .product-price {
+            font-weight: bold;
+            color: #e83e8c;
+        }
+        .quick-view-btn,
+        .inquiry-btn {
+            border: none;
+            padding: 8px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .quick-view-btn {
+            background-color: #007bff;
+            color: white;
+        }
+        .inquiry-btn {
+            background-color: #e83e8c;
+            color: white;
+        }
+        .sidebar {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .search-bar {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #28a745;
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+        }
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .mode-icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .dark-mode {
+            background-color: #343a40;
+            color: white;
+        }
+        .dark-mode .product-card {
+            background-color: #495057;
+            border-color: #6c757d;
+        }
+        .dark-mode footer {
+            background-color: #28a745;
+        }
+
+        /* Scrollable Product Section */
+        .product-container {
+            max-height: 600px; /* Fixed height for scrollable area */
+            overflow-y: auto;  /* Enable vertical scroll */
+            padding-right: 10px; /* Avoid scrollbar overlap */
+        }
+
+        /* Change Navbar Color to Blue */
+        .navbar {
+            background-color: #007bff !important; /* Blue navbar */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Made-in-Africa</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Toggle Mode Button -->
+    <button class="toggle-btn" onclick="toggleMode()">
+        <i class="fas fa-adjust mode-icon"></i>
+    </button>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <h5>Filter</h5>
+                    <div class="filter-section">
+                        <label for="category">Category</label>
+                        <select id="category" class="form-select">
+                            <option>Laptop</option>
+                            <option>Bluetooth Headset</option>
+                            <option>LCD Display</option>
+                        </select>
+                    </div>
+                    <div class="filter-section">
+                        <label for="min-order">Min Order</label>
+                        <input type="text" id="min-order" class="form-control" placeholder="Less than">
+                    </div>
+                    <div class="filter-section">
+                        <label for="price">Price</label>
+                        <input type="text" id="min-price" class="form-control" placeholder="Min">
+                        <input type="text" id="max-price" class="form-control mt-2" placeholder="Max">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product List -->
+            <div class="col-md-9">
+                <div class="search-bar">
+                    <input type="text" class="form-control" id="search-input" placeholder="Search Products..." onkeyup="searchProducts()">
+                </div>
+                <div class="product-container" id="product-container">
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/240x160" alt="Product Image">
+                        <div class="product-info">
+                            <h5 class="product-title">Gaming Monitor 21.5 inch</h5>
+                            <p>Screen Size: 21.5"</p>
+                            <p class="product-price">US$209.00 - 219.00 / Piece</p>
+                            <button class="quick-view-btn">Quick View</button>
+                            <button class="inquiry-btn">Send Inquiry</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/240x160" alt="Product Image">
+                        <div class="product-info">
+                            <h5 class="product-title">Gaming Laptop I7-5500U</h5>
+                            <p>Screen Size: 23.8"</p>
+                            <p class="product-price">US$263.00 - 269.00 / Piece</p>
+                            <button class="quick-view-btn">Quick View</button>
+                            <button class="inquiry-btn">Send Inquiry</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <!-- App Links -->
+        <div class="app-links">
+            <h5>Free App:</h5>
+            <a href="#" class="btn btn-light"><i class="fab fa-apple"></i> App Store</a>
+            <a href="#" class="btn btn-success"><i class="fab fa-android"></i> Google Play</a>
+        </div>
+        
+        <!-- Footer Links -->
+        <div class="footer-links">
+            <h5>Links</h5>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="#" style="text-decoration: none; color: inherit;">Hot Products</a></li>
+                <li><a href="#" style="text-decoration: none; color: inherit;">China Products</a></li>
+                <li><a href="#" style="text-decoration: none; color: inherit;">Wholesale Products</a></li>
+                <li><a href="#" style="text-decoration: none; color: inherit;">Wholesale Price</a></li>
+            </ul>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-links">
+            <a href="#" target="_blank" style="color: black; margin-right: 10px;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" target="_blank" style="color: black; margin-right: 10px;">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" target="_blank" style="color: black; margin-right: 10px;">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" target="_blank" style="color: black; margin-right: 10px;">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="#" target="_blank" style="color: black;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+    
+
+    <!-- Script -->
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        function searchProducts() {
+            const input = document.getElementById('search-input').value.toLowerCase();
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                const title = card.querySelector('h5').innerText.toLowerCase();
+                card.style.display = title.includes(input) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
